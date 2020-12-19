@@ -97,10 +97,71 @@ object MethodTest {
       for (e <- a) {
         println(e)
       }
+      a.foreach((x: Int) => {
+        println(x)
+      })
+
+      a.foreach(
+        println(_)
+      )
+
+      a.foreach(println)
     }
 
     fun08(2)
     fun08(2, 3)
     fun08(2, 3, 4)
+
+
+    // 高阶函数
+    def compute(a: Int, b: Int, f: (Int, Int) => Int): Unit = {
+      val i1 = f(a, b)
+      println(i1);
+    }
+
+    compute(3, 89, (x: Int, y: Int) => {
+      x + y
+    })
+    compute(3, 89, (x: Int, y: Int) => {
+      x * y
+    })
+    compute(3, 89, (x: Int, y: Int) => {
+      x - y
+    })
+    compute(3, 89, _ + _)
+    compute(3, 89, _ - _)
+    compute(3, 89, _ * _)
+
+    def factory(i: String): (Int, Int) => Int = {
+      def plus(x: Int, y: Int): Int = {
+        x + y
+      }
+
+      if (i.equals("+")) {
+        plus
+      } else {
+        (x: Int, y: Int) => (x * y)
+      }
+    }
+
+    compute(3, 8, factory("+"))
+    compute(3, 8, factory("*"))
+
+
+    // 柯里化
+
+    def fun09(a: Int)(b: Int)(c: String): Unit = {
+      println(s"$a $b $c")
+    }
+
+    fun09(3)(8)("ddasdf")
+
+
+    def fun10(a: Int*)(b: String*): Unit = {
+      a.foreach(println)
+      b.foreach(println)
+    }
+
+    fun10(1, 2, 3, 4)("dsdfs", "dsadfas")
   }
 }
