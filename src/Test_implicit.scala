@@ -71,6 +71,10 @@ object Test_implicit {
 
     ox2(3)
 
+    def xxo(s: String = "dbb"): Unit = {
+      println(s)
+    }
+    xxo("dds")
   }
 }
 
