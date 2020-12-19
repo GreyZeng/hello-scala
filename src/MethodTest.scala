@@ -1,13 +1,16 @@
 package git.snippet.scala
 
 import java.util.Date
-import scala.collection.mutable
 
 /**
  * Young
  * 2020/12/19
  * */
 object MethodTest {
+  def test(): Unit = {
+    println("test")
+  }
+
   def main(args: Array[String]): Unit = {
     def fun(): Unit = {
       println("hello world")
@@ -163,5 +166,9 @@ object MethodTest {
     }
 
     fun10(1, 2, 3, 4)("dsdfs", "dsadfas")
+
+    // 方法不想执行，赋值给一个应用 方法名 + 空格 + 下划线
+    val func = test _
+    func()
   }
 }
