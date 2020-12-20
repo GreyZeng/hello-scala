@@ -1,4 +1,4 @@
-package spark
+package git.snippet.spark
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
