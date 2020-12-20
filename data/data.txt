@@ -1,0 +1,4 @@
+Hello world
+count split
+Hello way
+split
